@@ -4,13 +4,7 @@ import frame1 from "../assets/frame 1.png";
 import frame2 from "../assets/frame 2.png";
 import frame3 from "../assets/frame 3.png";
 import frame4 from "../assets/frame 4.png";
-import { createClient } from "@supabase/supabase-js";
-
-// Vite 전용 환경 변수 호출 방식
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
-
-export const supabase = createClient(supabaseUrl, supabaseAnonKey);
+import { supabase } from "../supabase"; // supabase 클라이언트 임포트
 
 export default function DecoPage() {
   const location = useLocation();
