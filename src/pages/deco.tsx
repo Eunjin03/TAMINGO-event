@@ -120,7 +120,7 @@ export default function DecoPage() {
         <div className="flex items-center justify-center gap-[56px]">
           {/* 왼쪽: 찍은 사진 미리보기 */}
           <div className="mr-8">
-            <img src={previewUrlState} alt="Captured" className="w-[680px]" />
+            <img src={previewUrlState} alt="Captured" className="w-[643px]" />
           </div>
 
           {/* 오른쪽: 프레임 선택 영역 */}
