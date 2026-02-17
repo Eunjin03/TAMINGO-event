@@ -7,7 +7,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #f4fdfb;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -59,7 +59,7 @@ button:focus-visible {
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
-    background-color: #ffffff;
+    background-color: #f4fdfb;
   }
   a:hover {
     color: #747bff;
@@ -68,7 +68,16 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
-
+/* 1. 키프레임 정의 */
+@keyframes float {
+  0%,
+  100% {
+    translate: 0 0; /* 원래 위치 */
+  }
+  50% {
+    translate: 0 -20px; /* 위로 20px 이동 */
+  }
+}
 @theme {
   /* 폰트 패밀리 설정 */
   --font-paperlogy-100: "paperlogy-100", sans-serif;
@@ -80,6 +89,10 @@ button:focus-visible {
   --font-paperlogy-700: "paperlogy-700", sans-serif;
   --font-paperlogy-800: "paperlogy-800", sans-serif;
   --font-paperlogy-900: "paperlogy-900", sans-serif;
+
+  /* 애니메이션 정의 */
+  --animate-float: float 3s ease-in-out infinite;
+  --animate-float-slow: float 5s ease-in-out infinite;
 }
 
 @font-face {

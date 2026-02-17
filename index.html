@@ -6,8 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>vite-project</title>
   </head>
-  <body>
-    <div id="root"></div>
+  <body class="overflow-hidden w-full h-screen">
+    <div class="flex flex-col h-full w-full relative">
+      <div class="absolute inset-0 overflow-hidden pointer-events-none -z-10">
+        <div
+          class="absolute top-14 right-22 w-50 h-50 rotate-[26.9deg] bg-[#22C7A9]/3 rounded-[44px] border-[#22C7A9]/6 border-[5px] animate-float"
+        ></div>
+        <div
+          class="absolute top-105 left-7 w-81 h-81 rotate-[-6.8deg] bg-[#22C7A9]/3 rounded-[44px] border-[#22C7A9]/6 border-[5px] animate-float-slow"
+        ></div>
+      </div>
+
+      <header
+        class="w-full flex items-center justify-between px-7 pt-6 shrink-0"
+      >
+        <p class="text-xl/5 font-paperlogy-500 text-[#949494]">
+          UMC 9th Demo Day
+        </p>
+      </header>
+
+      <div id="root" class="flex-1 w-full overflow-hidden"></div>
+    </div>
+
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
