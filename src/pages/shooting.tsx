@@ -2,10 +2,12 @@ import { useNavigate } from "react-router-dom";
 import Webcam from "react-webcam";
 import { useRef, useCallback } from "react";
 
+import camera from "../assets/icons/camera.svg";
+
 export default function ShootingPage() {
   const videoConstraints = {
-    width: 643,
-    height: 483,
+    width: 619,
+    height: 443,
     facingMode: "user",
   };
 
@@ -24,8 +26,8 @@ export default function ShootingPage() {
       const canvas = document.createElement("canvas");
 
       // 2. 내가 원하는 최종 결과물 사이즈 설정 (예: 800x600)
-      const targetWidth = 643;
-      const targetHeight = 483;
+      const targetWidth = 619;
+      const targetHeight = 443;
       canvas.width = targetWidth;
       canvas.height = targetHeight;
 
@@ -56,17 +58,22 @@ export default function ShootingPage() {
     };
   }, [navigate]);
   return (
-    <div className="flex flex-col items-center justify-center h-screen">
+    <div className="flex flex-col items-center justify-center mt-[101px]">
       <Webcam
         audio={false}
-        height={483}
+        height={443}
         mirrored={true}
         ref={webcamRef}
         screenshotFormat="image/jpeg"
-        width={643}
+        width={619}
         videoConstraints={videoConstraints}
       />
-      <button onClick={capture}>Capture</button>
+      <button
+        onClick={capture}
+        className="mt-[59px] flex items-center justify-center w-[128px] h-[75px] px-[17px] py-[11px] bg-[#FF8FAB] rounded-[30px] shadow-[0_4px_20px_#92D1C6]"
+      >
+        <img src={camera} alt="Camera Icon" />
+      </button>
     </div>
   );
 }

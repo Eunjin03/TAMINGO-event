@@ -54,7 +54,7 @@ export default function DecoPage() {
         canvas.height = frame.naturalHeight;
         photo.src = userPhotoBase64;
         photo.onload = () => {
-          ctx.drawImage(photo, 30, 30, 643, 483);
+          ctx.drawImage(photo, 42, 43, 619, 443);
           ctx.drawImage(frame, 0, 0, canvas.width, canvas.height);
           resolve(canvas.toDataURL("image/png"));
         };
