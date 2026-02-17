@@ -1,5 +1,6 @@
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+
+import logo from "../assets/icons/logo.svg";
 
 export default function StartPage() {
   const navigate = useNavigate();
@@ -7,10 +8,11 @@ export default function StartPage() {
     navigate("/shooting");
   };
   return (
-    <div className="flex items-center justify-center h-screen">
+    <div className="flex flex-col items-center justify-start h-screen mt-16">
+      <img src={logo} alt="logo" className="w-120 mb-8" />
       <button
         onClick={handleStart}
-        className="text-2xl font-paperlogy-500 bg-blue-500 text-black px-6 py-3 rounded-lg hover:bg-blue-600 transition-colors"
+        className="mt-[86px] flex justify-center items-center w-[288px] h-[75px] px-[11px] py-[17px] rounded-[10px] bg-[#22C7A9] shadow-[0_4px_20px_#92D1C6] text-[30px] text-white font-paperlogy-700"
       >
         시작하기
       </button>
