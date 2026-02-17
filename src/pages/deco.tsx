@@ -1,6 +1,9 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import frame1 from "../assets/frame1.png";
+import frame1 from "../assets/frame 1.png";
+import frame2 from "../assets/frame 2.png";
+import frame3 from "../assets/frame 3.png";
+import frame4 from "../assets/frame 4.png";
 import { createClient } from "@supabase/supabase-js";
 
 // Vite 전용 환경 변수 호출 방식
@@ -78,7 +81,7 @@ export default function DecoPage() {
       const fileName = `tamingo_${Date.now()}.png`;
 
       // 3. Supabase Storage 업로드
-      const { data, error } = await supabase.storage
+      const { error } = await supabase.storage
         .from("photos") // 설정하신 버킷 이름
         .upload(fileName, blob, {
           contentType: "image/png",
@@ -113,36 +116,46 @@ export default function DecoPage() {
 
   return (
     <div className="relative">
-      <div className="flex flex-col items-center justify-center h-screen">
-        <div className="flex items-center justify-center h-screen bg-gray-50">
+      <div className="flex flex-col items-center justify-center mt-[50px]">
+        <div className="flex items-center justify-center gap-[56px]">
           {/* 왼쪽: 찍은 사진 미리보기 */}
           <div className="mr-8">
-            <img
-              src={previewUrlState}
-              alt="Captured"
-              className="w-[400px] rounded-lg shadow-lg"
-            />
+            <img src={previewUrlState} alt="Captured" className="w-[680px]" />
           </div>
 
           {/* 오른쪽: 프레임 선택 영역 */}
-          <div className="flex flex-col gap-4">
-            <p className="text-center font-bold text-gray-700">
-              프레임을 선택하세요
-            </p>
+          <div className="flex flex-col gap-3 items-center justify-center border-2 border-[#22C7A9] bg-gray-100 rounded-lg p-4">
             <div
-              className="cursor-pointer hover:scale-105 transition-transform border-4 border-transparent hover:border-blue-400 rounded-lg overflow-hidden"
+              className="cursor-pointer hover:scale-105 transition-transform border-4 border-transparent hover:border-[#FF8FAB] rounded-lg overflow-hidden"
               onClick={() => clickFrame(frame1)}
             >
               <img src={frame1} alt="Frame 1" className="w-40" />
             </div>
-            {/* 추가 프레임이 있다면 여기에 같은 방식으로 추가 */}
+            <div
+              className="cursor-pointer hover:scale-105 transition-transform border-4 border-transparent hover:border-[#FF8FAB] rounded-lg overflow-hidden"
+              onClick={() => clickFrame(frame2)}
+            >
+              <img src={frame2} alt="Frame 2" className="w-40" />
+            </div>
+            <div
+              className="cursor-pointer hover:scale-105 transition-transform border-4 border-transparent hover:border-[#FF8FAB] rounded-lg overflow-hidden"
+              onClick={() => clickFrame(frame3)}
+            >
+              <img src={frame3} alt="Frame 3" className="w-40" />
+            </div>
+            <div
+              className="cursor-pointer hover:scale-105 transition-transform border-4 border-transparent hover:border-[#FF8FAB] rounded-lg overflow-hidden"
+              onClick={() => clickFrame(frame4)}
+            >
+              <img src={frame4} alt="Frame 4" className="w-40" />
+            </div>
           </div>
         </div>
         <button
           onClick={() => handleComplete()}
-          className="mt-4 px-6 py-2 bg-blue-500 text-white rounded-full hover:bg-blue-600 transition"
+          className="flex justify-center items-center w-[288px] h-[75px] px-[11px] py-[17px] rounded-[10px] bg-[#22C7A9] shadow-[0_4px_20px_#92D1C6] text-[30px] text-white font-paperlogy-700"
         >
-          <p className="text-sm text-gray-500 mt-4">저장</p>
+          다운 받기
         </button>
       </div>
 
@@ -151,7 +164,7 @@ export default function DecoPage() {
         <div className="absolute inset-0 flex items-center justify-center bg-black/60 z-50">
           <div className="text-white text-center">
             <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-white mx-auto mb-4"></div>
-            <p className="text-xl font-bold">
+            <p className="text-xl font-bold font-paperlogy-700">
               타밍고와 데모데이 추억 사진 만드는 중...
             </p>
           </div>
