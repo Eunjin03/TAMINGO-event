@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
+import CountUp from "react-countup";
 
 import logo from "../assets/icons/logo.svg";
 
@@ -12,7 +13,7 @@ export default function StartPage() {
     navigate("/shooting");
   };
 
-  const [count, setCount] = useState<number | null>(null);
+  const [count, setCount] = useState<number>(0);
 
   useEffect(() => {
     const fetchCount = async () => {
@@ -27,7 +28,9 @@ export default function StartPage() {
       <img src={logo} alt="logo" className="w-120 mb-8" />
       <p className="text-[#22C7A9] font-paperlogy-700 text-[20px] mb-4">
         오늘 &nbsp;
-        <span className="text-[#FF8FAB]">{count !== null ? count : "..."}</span>
+        <span className="text-[#FF8FAB] text-[26px]">
+          <CountUp end={count} duration={2.5} useEasing={true} />
+        </span>
         명이 <span className="text-[#FF8FAB]">타밍고 스냅</span>으로 추억을
         남겼어요! <br />
         당신도 <span className="text-[#FF8FAB]">타밍고 스냅</span>으로{" "}
@@ -35,7 +38,7 @@ export default function StartPage() {
       </p>
       <button
         onClick={handleStart}
-        className="mt-[75px] flex justify-center items-center w-[288px] h-[75px] px-[11px] py-[17px] rounded-[10px] bg-[#22C7A9] shadow-[0_4px_20px_#92D1C6] text-[30px] text-white font-paperlogy-700"
+        className="mt-[55px] flex justify-center items-center w-[288px] h-[75px] px-[11px] py-[17px] rounded-[10px] bg-[#22C7A9] shadow-[0_4px_20px_#92D1C6] text-[30px] text-white font-paperlogy-700"
       >
         시작하기
       </button>
